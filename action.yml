@@ -1,0 +1,62 @@
+name: 'ProofChain Attestation'
+description: 'Attest commits, releases, and build artifacts to the blockchain. Create tamper-proof records of your software supply chain with IPFS storage and on-chain anchoring.'
+author: 'Clive Watts / MegaWatts Solutions'
+branding:
+  icon: 'shield'
+  color: 'purple'
+
+inputs:
+  api-key:
+    description: 'Your ProofChain API key'
+    required: true
+  api-url:
+    description: 'ProofChain API URL (default: https://ingest.proofchain.co.za)'
+    required: false
+    default: 'https://ingest.proofchain.co.za'
+  
+  # What to attest
+  type:
+    description: 'Type of attestation: commit, release, artifact, or custom'
+    required: false
+    default: 'commit'
+  
+  # For artifact attestation
+  artifact-path:
+    description: 'Path to artifact file(s) to attest (supports glob patterns)'
+    required: false
+  
+  # Custom event data
+  event-type:
+    description: 'Custom event type name'
+    required: false
+    default: 'github_attestation'
+  custom-data:
+    description: 'Additional JSON data to include in attestation'
+    required: false
+    default: '{}'
+  
+  # Options
+  include-diff:
+    description: 'Include commit diff hash in attestation'
+    required: false
+    default: 'false'
+  wait-for-confirmation:
+    description: 'Wait for blockchain confirmation before completing'
+    required: false
+    default: 'false'
+  
+outputs:
+  certificate-id:
+    description: 'The certificate ID for verification'
+  document-hash:
+    description: 'The document hash that was attested'
+  verification-url:
+    description: 'URL to verify the attestation'
+  ipfs-hash:
+    description: 'IPFS hash of the attestation data'
+  tx-hash:
+    description: 'Blockchain transaction hash (if wait-for-confirmation is true)'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

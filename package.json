@@ -1,0 +1,31 @@
+{
+  "name": "proofchain-github-action",
+  "version": "1.0.0",
+  "description": "GitHub Action to attest commits, releases, and artifacts to the blockchain",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist --source-map --license licenses.txt",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": [
+    "github-action",
+    "blockchain",
+    "attestation",
+    "proofchain",
+    "verification"
+  ],
+  "author": "ProofChain",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "@actions/glob": "^0.4.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@vercel/ncc": "^0.38.1",
+    "typescript": "^5.3.0"
+  }
+}
