@@ -1,9 +1,9 @@
 name: 'ProofChain Attestation'
-description: 'Attest commits, releases, and build artifacts to the blockchain. Create tamper-proof records of your software supply chain with IPFS storage and on-chain anchoring.'
-author: 'Clive Watts / MegaWatts Solutions'
+description: 'Attest commits, releases, and artifacts to the blockchain using ProofChain'
+author: 'ProofChain'
 branding:
   icon: 'shield'
-  color: 'purple'
+  color: 'blue'
 
 inputs:
   api-key:
